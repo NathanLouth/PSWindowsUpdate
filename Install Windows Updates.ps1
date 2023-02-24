@@ -252,4 +252,3 @@ Remove-Item $ScriptFile
 
 }
 
-Install-WACWUWindowsUpdates
