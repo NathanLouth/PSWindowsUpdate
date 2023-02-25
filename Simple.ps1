@@ -17,7 +17,9 @@ foreach ($update in $updateSearchResult.Updates) {
     Write-Output "Last Deployment Change Time: $($update.LastDeploymentChangeTime)"
     Write-Output "Languages: $($update.Languages)"
     Write-Output "Products: $($update.Products)"
-    Write-Output "Reboot Behavior: $($update.RebootBehavior)"
+    $updateProperties = $update.Properties
+    $rebootRequired = $updateProperties | Where-Object { $_.Name -eq "RebootRequired" } | Select-Object Value
+    Write-Output "Reboot Required: $($rebootRequired.Value)"
     Write-Output "-----"
 }
 
